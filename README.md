@@ -1,2 +1,2 @@
 # sgi
-An Educational Institution
+An Educational Institution For Success
