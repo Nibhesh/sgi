@@ -30,14 +30,52 @@
   </div>
 </div>
 <div class="container container-content">
-  
+  <select id="mySelect" onchange="myFunction()">
+  <option value="BinomialTheorem.pdf">BinomialTheorem</option>
+  <option value="ArithmeticProgression.pdf">ArithmeticProgression</option>
+  <option value="linearEqn">PairofLinearEquationInTwoVariables</option>
+  <option value="audi">Formulasheet</option>
+</select>
   <div class="text-center">
     <h1>Maths Formula's Collection</h1>
-    <object width="800" height="900" data="assets/BinomialTheorem.pdf"></object>
+
+<div id="parent"></div>
+    <!-- <object id="pdf" width="800" height="900" data="assets/BinomialTheorem.pdf"></object> -->
   </div>
   
 </div><!-- /.container -->
 </body>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>
+<script>
+function myFunction() {
+  //document.getElementById("pdf")element.setAttribute("data", "http://www.google.com");
+  /* console.log('object is ',document.getElementsByTagName("object"),document.getElementById("pdf"));
+   
+    var x = "assets/"+document.getElementById("mySelect").value;
+     console.log(x);
+    document.getElementsByTagName("object")[0].setAttribute("data",x);*/
+ 
+var x =document.getElementById("mySelect").value;
+if(x=="ArithmeticProgression.pdf"){
+  console.log('hiii');
+  //document.getElementById("parent").innerHTML = "<object id="pdf" width="800" height="900" data="assets/BinomialTheorem.pdf"></object>"
+
+  document.getElementById("parent").innerHTML='<object id="pdf" width="800" height="900" data="assets/ArithmeticProgression.pdf"></object>';
+}
+else if(x=="BinomialTheorem.pdf"){
+  document.getElementById("parent").innerHTML='<object id="pdf" width="800" height="900" data="assets/BinomialTheorem.pdf"></object>';
+}
+else if(x=="linearEqn"){
+
+  document.getElementById("parent").innerHTML='<object id="pdf" width="800" height="900" data="assets/PairofLinearEquationInTwoVariables.pdf"></object>';
+}
+else{
+  document.getElementById("parent").innerHTML='<object id="pdf" width="800" height="900" data="assets/formula-sheet-academic.pdf"></object>'; 
+}
+
+
+
+}
+</script>
 </html>
