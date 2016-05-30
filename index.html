@@ -2,14 +2,12 @@
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<title>SGI</title>
-<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-<link rel="stylesheet" type="text/css" href="css/style.css">
-  <script type="text/javascript" src="js/lodash.js"></script>
-<meta name="generator" content="Bootply" />
+	<meta charset="utf-8">
+	<title>SGI</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<meta name="generator" content="Bootply" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
 </head>
 <body>
 <div class="navbar navbar-inverse navbar-fixed-top">
@@ -31,12 +29,13 @@
     </div><!--/.nav-collapse -->
   </div>
 </div>
-<div class="container container-content styled-select black rounded">
-  <select id="selectbox" onchange="selectPdf()">
-    <option value="select" disabled>Select</option>
+<div class="container container-content">
+  <select id="mySelect" onchange="myFunction()">
+  <option value="BinomialTheorem.pdf">BinomialTheorem</option>
+  <option value="ArithmeticProgression.pdf">ArithmeticProgression</option>
+  <option value="linearEqn">PairofLinearEquationInTwoVariables</option>
+  <option value="audi">Formulasheet</option>
 </select>
-
-
   <div class="text-center">
     <h1>Maths Formula's Collection</h1>
 
@@ -49,31 +48,34 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>
 <script>
-var xmlhttp = new XMLHttpRequest();
-var url = "assets/pdf.json";
+function myFunction() {
+  //document.getElementById("pdf")element.setAttribute("data", "http://www.google.com");
+  /* console.log('object is ',document.getElementsByTagName("object"),document.getElementById("pdf"));
+   
+    var x = "assets/"+document.getElementById("mySelect").value;
+     console.log(x);
+    document.getElementsByTagName("object")[0].setAttribute("data",x);*/
+ 
+var x =document.getElementById("mySelect").value;
+if(x=="ArithmeticProgression.pdf"){
+  console.log('hiii');
+  //document.getElementById("parent").innerHTML = "<object id="pdf" width="800" height="900" data="assets/BinomialTheorem.pdf"></object>"
 
-xmlhttp.onreadystatechange = function() {
-    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-        var myArr = JSON.parse(xmlhttp.responseText);        
-        console.log('myarr is ',myArr);
-        _.map(myArr,function(e){
-          console.log(e);
-          document.getElementById('selectbox').innerHTML+='<option value="' +e.url+'">'+e.value+'</option>'
-        },this);
-        
-    }
-};
-xmlhttp.open("GET", url, true);
-xmlhttp.send();
+  document.getElementById("parent").innerHTML='<object id="pdf" width="800" height="900" data="assets/ArithmeticProgression.pdf"></object>';
+}
+else if(x=="BinomialTheorem.pdf"){
+  document.getElementById("parent").innerHTML='<object id="pdf" width="800" height="900" data="assets/BinomialTheorem.pdf"></object>';
+}
+else if(x=="linearEqn"){
 
-function selectPdf() { 
-var x =document.getElementById("selectbox").value;
-console.log('x',x);
-document.getElementById("parent").innerHTML='<object id="pdf" width="800" height="900" data="'+x+'"></object>';
+  document.getElementById("parent").innerHTML='<object id="pdf" width="800" height="900" data="assets/PairofLinearEquationInTwoVariables.pdf"></object>';
+}
+else{
+  document.getElementById("parent").innerHTML='<object id="pdf" width="800" height="900" data="assets/formula-sheet-academic.pdf"></object>'; 
 }
 
+
+
+}
 </script>
-
-
-
 </html>
